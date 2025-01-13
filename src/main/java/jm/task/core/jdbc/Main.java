@@ -19,14 +19,12 @@ public class Main {
         userDao.saveUser("Валерия", "Бубнова", (byte) 23);
         userDao.saveUser("Дмитрий", "Жаворонков", (byte) 23);
         List<User> users = userDao.getAllUsers();
-        System.out.println("Cписок всех пользователей:");
+        System.out.println("Список всех пользователей:");
         for (User user : users) {
             System.out.println(user.getId() + ": " + user.getName() + " " + user.getLastName() + ", возраст: " + user.getAge());
         }
-        if (!users.isEmpty()) {
-            for (int i = 3; i<=4;i++) {
-                userDao.removeUserById(i);
-            }
+        for (int i = 3; i <= 4; i++) {
+            userDao.removeUserById(i);
         }
         users = userDao.getAllUsers();
         System.out.println("Cписок всех оставшихся пользователей(сосисочная вечеринка):");
